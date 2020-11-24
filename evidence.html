@@ -1,0 +1,132 @@
+<html>
+<head>
+	<style type="text/css">
+		table,th,td {
+			border: 1px solid black;
+		}
+		.checked {
+			background: lightgreen;
+		}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script type="text/javascript">
+	window.onload = function() {
+		var app = new Vue({
+			el: '#app',
+			data: {
+				ghosts: [
+					{'Ghost': 'Banshee',
+					 'Evidence 1': 'EMF Level 5',
+					 'Evidence 2': 'Fingerprints',
+					 'Evidence 3': 'Freezing Temperatures',
+					 'Strength': 'Only targets one player per hunt, giving them a really bad night.',
+					 'Weakness': 'Hates the Crucifix. (5m range)'},
+					{'Ghost': 'Demon',
+					 'Evidence 1': 'Freezing Temperatures',
+					 'Evidence 2': 'Ghost Writing',
+					 'Evidence 3': 'Spirit Box',
+					 'Strength': 'Extremely aggressive.',
+					 'Weakness': 'Using Ouija board doesn\'t drain sanity'},
+					{'Ghost': 'Jinn',
+					 'Evidence 1': 'EMF Level 5',
+					 'Evidence 2': 'Ghost Orbs',
+					 'Evidence 3': 'Spirit Box',
+					 'Strength': 'Jinn moves faster the further away you are from it.',
+					 'Weakness': 'Turning off the power supply will stop the Jinn\'s ability.'},
+					{'Ghost': 'Mare',
+					 'Evidence 1': 'Freezing Temperatures',
+					 'Evidence 2': 'Ghost Orbs',
+					 'Evidence 3': 'Spirit Box',
+					 'Strength': 'Attacks more frequently in the dark.',
+					 'Weakness': 'Keeping the lights on.'},
+					{'Ghost': 'Oni',
+					 'Evidence 1': 'EMF Level 5',
+					 'Evidence 2': 'Ghost Writing',
+					 'Evidence 3': 'Spirit Box',
+					 'Strength': 'Extremely active and moves objects quickly.',
+					 'Weakness': 'Extreme activity and lots of players nearby makes it easier to identify.'},
+					{'Ghost': 'Phantom',
+					 'Evidence 1': 'EMF Level 5',
+					 'Evidence 2': 'Freezing Temperatures',
+					 'Evidence 3': 'Ghost Orbs',
+					 'Strength': 'Looking at the Phantom will reduce your sanity.',
+					 'Weakness': 'Taking a photo will cause the Phantom to disappear.'},
+					{'Ghost': 'Poltergeist',
+					 'Evidence 1': 'Fingerprints',
+					 'Evidence 2': 'Ghost Orbs',
+					 'Evidence 3': 'Spirit Box',
+					 'Strength': 'Throws multiple objects at once.',
+					 'Weakness': 'Empty rooms.'},
+					{'Ghost': 'Revenant',
+					 'Evidence 1': 'EMF Level 5',
+					 'Evidence 2': 'Fingerprints',
+					 'Evidence 3': 'Ghost Writing',
+					 'Strength': 'Attacks anyone, regardless of sanity levels.',
+					 'Weakness': 'Moves extremely slow when players hide.'},
+					{'Ghost': 'Shade',
+					 'Evidence 1': 'EMF Level 5',
+					 'Evidence 2': 'Ghost Orbs',
+					 'Evidence 3': 'Ghost Writing',
+					 'Strength': 'Extremely shy, making it hard to find and detect.',
+					 'Weakness': 'Won\'t hunt unless players are alone.'},
+					{'Ghost': 'Spirit',
+					 'Evidence 1': 'Fingerprints',
+					 'Evidence 2': 'Ghost Writing',
+					 'Evidence 3': 'Spirit Box',
+					 'Strength': 'None.',
+					 'Weakness': 'Using smudge sticks makes the Spirit inactive for a long time.'},
+					{'Ghost': 'Wraith',
+					 'Evidence 1': 'Fingerprints',
+					 'Evidence 2': 'Freezing Temperatures',
+					 'Evidence 3': 'Spirit Box',
+					 'Strength': 'Can fly through walls and don\'t leave footprints.',
+					 'Weakness': 'Has a toxic reaction to Salt.'},
+					{'Ghost': 'Yurei',
+					 'Evidence 1': 'Freezing Temperatures',
+					 'Evidence 2': 'Ghost Orbs',
+					 'Evidence 3': 'Ghost Writing',
+					 'Strength': 'Drains sanity very quickly.',
+					 'Weakness': 'Using a smudge stick will stop the Yurei from moving.'}
+				],			
+			evidences: {'EMF Level 5': false,
+ 						'Fingerprints': false,
+ 						'Freezing Temperatures': false,
+ 						'Ghost Orbs': false,
+ 						'Ghost Writing': false,
+ 						'Spirit Box': false},
+ 			},
+		})
+	}
+	</script>
+</head>
+<body>
+	<div id="app">
+		<p v-for="(value, key, idx) in evidences">
+			<input type="checkbox" v-model="evidences[key]">{{key}}
+			
+		</p>
+		<table id="ghosts">
+			<thead>
+				<tr>
+					<th>Ghost</th>
+					<th>Evidence 1</th>
+					<th>Evidence 2</th>
+					<th>Evidence 3</th>
+					<th>Strength</th>
+					<th>Weakness</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="ghost in ghosts">
+					<td>{{ghost['Ghost']}}</td>
+					<td :class="{checked: evidences[ghost['Evidence 1']]}">{{ghost['Evidence 1']}}</td>
+					<td :class="{checked: evidences[ghost['Evidence 2']]}">{{ghost['Evidence 2']}}</td>
+					<td :class="{checked: evidences[ghost['Evidence 3']]}">{{ghost['Evidence 3']}}</td>
+					<td>{{ghost['Strength']}}</td>
+					<td>{{ghost['Weakness']}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

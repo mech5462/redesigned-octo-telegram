@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<style type="text/css">
@@ -6,6 +5,12 @@
 			border: 1px solid black;
 		}
 		.checked {
+			background: lightgreen;
+		}
+		.highlight {
+			background: lightgreen;
+		}
+		input:checked + label{
 			background: lightgreen;
 		}
 	</style>
@@ -96,11 +101,21 @@
  						'Ghost Writing': false,
  						'Spirit Box': false},
  			},
+			bonuses: {'Detect a room below 10 degrees': false,},
 		})
 	}
 	</script>
 </head>
 <body>
+	<style type="text/css">
+		input: checked + label{
+			background: lightgreen;
+		}
+	</style>
+	<p>
+		<input id="checkbox10" type="checkbox">
+		<label for="checkbox10">Responds to everyone.</label>
+	</p>
 	<div id="app">
 		<p v-for="(value, key, idx) in evidences">
 			<input type="checkbox" v-model="evidences[key]">{{key}}
@@ -129,5 +144,41 @@
 			</tbody>
 		</table>
 	</div>
+	<p>
+		<input id="checkbox1" type="checkbox">
+		<label for="checkbox1">Have a member of your team witness a Ghost Event.</label>
+	</p>
+	<p>
+		<input id="checkbox2" type="checkbox">
+		<label for="checkbox2">Capture a photo of the Ghost.</label>
+	</p>
+	<p>
+		<input id="checkbox3" type="checkbox">
+		<label for="checkbox3">Capture a photo of Dirty Water in a sink.</label>
+	</p>
+	<p>
+		<input id="checkbox4" type="checkbox">
+		<label for="checkbox4">Find evidence of the paranormal with an EMF Reader.</label
+	</p>
+	<p>
+		<input id="checkbox5" type="checkbox">
+		<label for="checkbox5">Detect a room below 10 Celsius/50 Fahrenheit with a Thermometer.</label>
+	</p>
+	<p>
+		<input id="checkbox6" type="checkbox">
+		<label for="checkbox6">Detect a Ghosts presence with a Motion Sensor.</label>
+	</p>
+	<p>
+		<input id="checkbox7" type="checkbox">
+		<label for="checkbox7">Cleanse the area near the Ghost using Smudge Sticks.</label>
+	</p>
+	<p>
+		<input id="checkbox8" type="checkbox">
+		<label for="checkbox8">Prevent the Ghost from hunting with a Crucifix.</label>
+	</p>
+	<p>
+		<input id="checkbox9" type="checkbox">
+		<label for="checkbox9">Get a Ghost to walk through Salt.</label>
+	</p>
 </body>
 </html>
